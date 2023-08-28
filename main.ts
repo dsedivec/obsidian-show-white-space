@@ -1,4 +1,5 @@
 import { App, Plugin, PluginSettingTab, Setting } from 'obsidian';
+import { Extension } from '@codemirror/state';
 import { highlightWhitespace } from '@codemirror/view';
 
 interface ShowWhiteSpaceSettings {
@@ -11,7 +12,7 @@ const DEFAULT_SETTINGS: ShowWhiteSpaceSettings = {
 
 export default class ShowWhiteSpace extends Plugin {
     settings: ShowWhiteSpaceSettings;
-    editorExtensions: Array;
+    editorExtensions: Array<Extension>;
 
     async onSettingsChanged() {
         const extensionRegistered = (this.editorExtensions.length > 0);
